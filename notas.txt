@@ -1,0 +1,88 @@
+Tipos de componentes
+
+componentes funcionales
+componente puro
+componente normal o de estado
+
+
+Siclo de vida de los componentes en React
+
+constructor: Se llama antes de que el componente sea montado (el primer metodo, cunado aun no se pinta en la pantalla), 
+enlazar el bind
+
+componentWillMount: despues del constructor, se lama antes de que se pinte el componente (inmediatamente antes), se pude usar el setState() 
+y se recomienda no hacer llamados a apis en este componente, se ejecuta en el servidor.
+
+render: metodo que tiene el jsx, se pueden realizar calculos sencillos, contiene todo los elementos a renderizar,
+se llama despues del componentWillMount
+
+componentDidMount: metodo que se llama luego de que el compnente se monta, solo se lanza una vez, se pueden enlazar
+eventos y es el primer metodo que se llama al instanciar un componente.
+
+-===========================fin de la primera parte===================================-
+
+Actualizacion
+
+componentWillReceiveProps: metodo llamado al recibir nuevas propiedades, sirve para actualizar el estado con base
+a las nuevas propiedades.
+
+componentWillUpdate: método llamado antes de re-renderizar un componente, se utiliza para optimizar el rendimiento 
+ya que verifica si hay cambios en las propiedades. Simplemente comprueba si hay cambios y devuelve un boolean. Si es 
+verdadero pasa al siguiente metodo (render)
+
+componentDidUpdate: Metodo llamado luego de que se re renderizo
+
+======================================================================
+
+Desmontado
+
+componentWillUnmount: metodo llamado antes de que el componente sea retirado de la aplicación
+
+==============================================================================================
+
+Manejo de errores
+
+componentDidcatch: metodo llamado si ocurrio un error en un componente (luego del renderizado del componente 
+y solo funciona en los hijos)
+
+
+========================================================================
+componentes puros 
+
+Los componentes puros comprueban por defecto si las propiedades cambiaron, renderizan automaticamente 
+las diferencias
+
+Componetes funcionales
+
+Son componetes que se retirnan en una función.
+
+====================================================================================================
+
+Smart and Dumb components
+
+Componente presentacional: 
+1- Puede contener smart componets o otros componentes de utiliza
+2- Permiten composición con [props.children]
+3- No dependen del resto de la aplicación
+4- Nop especifica como los datos son cargados o mutado.
+5- Recibe datos y callbacks solo con propiedades.
+6- Rara ves tienen su propio estado
+7- Se escriben como componetes funcionales, a no ser que se necesite mejor performance,
+   se pueden escribir como PureComponents.
+
+Containers
+1- Concntrados en el funcionamiento de la aplicación.
+2- Contienen componetes de UI u otros Containers
+3- No tienen estilos
+4- Proveen de datos a los componetes UI u otros contenedores
+5- Proveen de calbacks a la UI.
+6- Normalmente tienen estado.
+7- llaman acciones.
+8- Generados por higher order components.
+
+Por que es importante mantener esta clasificación.
+
+1- Separación de responsabilidades (como se ve, de como funciona la app)
+2- Mejora la capacidad de reutilizar componentes.
+
+

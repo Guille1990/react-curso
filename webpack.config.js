@@ -17,7 +17,7 @@ module.exports = (env) => {
   return {
 
     entry: {
-      "platzi-video": path.resolve(__dirname, 'index.js'),
+      "home": path.resolve(__dirname, 'src/entries/home.js'),
     },
     output: {
       path: path.resolve(__dirname, 'dist'),
@@ -28,6 +28,7 @@ module.exports = (env) => {
     devServer: {
       port: 9000,
     },
+    devtool: 'eval-source-map',
     module: {
       rules: [
         {
